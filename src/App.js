@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import NavBar from './components/NavBar';
+import { Board } from './components/Board';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import { NewCard } from './components/NewCard';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <NavBar/>
+
+        <section>
+          <div className="container-fluid pt-4">
+            <Switch>
+              <Route exact path="/columns/:columnId/new_card" component={NewCard} />
+              <Route exact path="/board" component={Board}/>
+              <Redirect to="/board"/>
+            </Switch>
+          </div>
+        </section>
       </div>
     );
   }
