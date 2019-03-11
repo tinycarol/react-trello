@@ -13,7 +13,8 @@ export class NewCard extends Component {
     card: {
       title: '',
       description: '',
-      imageURl: ''
+      imageURl: '',
+      attachment: ''
     },
     errors: {
       title: true
@@ -23,14 +24,14 @@ export class NewCard extends Component {
   }
 
   handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, files } = e.target;
 
     const isValid = validators[name] === undefined || validators[name](value);
 
     this.setState({
       card: {
         ...this.state.card,
-        [name]: value
+        [name]: (files && files[0]) ? files[0] : value
       },
       errors: {
         ...this.state.errors,
@@ -114,6 +115,23 @@ export class NewCard extends Component {
 
             <div className="invalid-feedback">
               Invalid title
+            </div>
+          </div>
+
+          <div className="input-group mb-3">
+            <div className="input-group-prepend">
+              <span className="input-group-text" id="inputGroupFileAddon01">Upload</span>
+            </div>
+            <div className="custom-file">
+              <input 
+                type="file" 
+                className="custom-file-input" 
+                name="attachment" id="attachment" 
+                aria-describedby="attachment"
+                onChange={this.handleChange}
+                onBlur={this.handleBlur}
+                 />
+              <label className="custom-file-label" htmlFor="attachment">Choose Attachment</label>
             </div>
           </div>
 

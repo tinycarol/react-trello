@@ -1,0 +1,9 @@
+.Card {
+  position: relative;
+}
+
+.Card .btn-delete-card {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}

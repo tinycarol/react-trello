@@ -1,5 +1,6 @@
 import React from 'react';
 import trelloService from '../services/TrelloService';
+import './Card.css';
 
 export default (props) => {
   const onClickDelete = () => {
@@ -7,9 +8,13 @@ export default (props) => {
       .then(props.onDelete)
   }
   return (
-    <li className="Card border rounded mb-2 p-2 d-flex justify-content-between align-items-center">
-      {props.title}
-      <span className="text-danger" onClick={onClickDelete}><i className="fa fa-times"></i></span>
-    </li>
+    <div className="Card card mb-2">
+      {props.imageURL && <img src={props.imageURL} className="card-img-top" alt="..." />}
+      <span className="btn-delete-card text-danger" onClick={onClickDelete}><i className="fa fa-times"></i></span>
+      <div className="card-body">
+        <p className="card-text">{props.title}</p>
+        {props.description && <p className="card-text"><small className="text-muted">{props.description}</small></p>}
+      </div>
+    </div>
   );
 };
