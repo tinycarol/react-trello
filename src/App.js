@@ -4,6 +4,7 @@ import NavBar from './components/misc/NavBar';
 import { Board } from './components/Board';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { NewCard } from './components/card';
+import Login from './components/auth/Login';
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/columns/:columnId/new_card" component={NewCard} />
               <Route exact path="/board" component={Board}/>
+              <Route exact path="/login" component={Login}/>
               <Redirect to="/board"/>
             </Switch>
           </div>
