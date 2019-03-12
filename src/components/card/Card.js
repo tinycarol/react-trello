@@ -1,5 +1,5 @@
 import React from 'react';
-import trelloService from '../services/TrelloService';
+import trelloService from '../../services/TrelloService';
 import './Card.css';
 
 export default (props) => {

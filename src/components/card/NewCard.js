@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import trelloService from '../services/TrelloService.js';
 import { Redirect, Link } from 'react-router-dom';
+import trelloService from '../../services/TrelloService.js';
+
 
 const queryString = require('query-string');
 
@@ -8,7 +9,7 @@ const validators = {
   title: (value) => value.length > 0 && value.length < 100
 }
 
-export class NewCard extends Component {
+export default class NewCard extends Component {
   state = {
     card: {
       title: '',

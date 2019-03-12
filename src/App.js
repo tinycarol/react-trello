@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import NavBar from './components/NavBar';
+import NavBar from './components/misc/NavBar';
 import { Board } from './components/Board';
-import { Switch, Route, Redirect } from 'react-router-dom';
-import { NewCard } from './components/NewCard';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import { NewCard } from './components/card';
 
 class App extends Component {
   render() {

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import trelloService from '../services/TrelloService.js';
+import trelloService from '../../services/TrelloService.js';
 
 const validators = {
   title: (value) => value.length > 0 && value.length < 100
 }
 
-export class ColumnForm extends Component {
+export default class ColumnForm extends Component {
   state = {
     column: {
       title: ''

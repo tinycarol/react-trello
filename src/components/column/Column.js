@@ -1,6 +1,6 @@
 import React from 'react';
-import Card from './Card';
-import trelloService from '../services/TrelloService.js';
+import { Card } from '../card';
+import trelloService from '../../services/TrelloService.js';
 import { Link } from 'react-router-dom';
 import './Column.css';
 
