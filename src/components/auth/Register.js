@@ -25,7 +25,7 @@ const validators = {
   }
 }
 
-export default class Login extends Component {
+export default class Register extends Component {
 
   state = {
     user: {
@@ -41,7 +41,7 @@ export default class Login extends Component {
     event.preventDefault();
 
     if (!this.hasErrors()) {
-      authService.authenticate(this.state.user)
+      authService.register(this.state.user)
       .then(
         (user) => this.setState({ authenticated: true }),
         (error) => {
@@ -89,7 +89,7 @@ export default class Login extends Component {
   render() {
     const { touch, errors, user } = this.state;
     if (this.state.authenticated) {
-      return (<Redirect to="/board" />);
+      return (<Redirect to="/login" />);
     } else {
       return (
         <div className="row justify-content-center mt-5">
@@ -112,11 +112,11 @@ export default class Login extends Component {
               </div>
 
               <div className="from-actions">
-                <button type="submit" className="btn btn-primary btn-block" disabled={this.hasErrors()}>Login</button>
+                <button type="submit" className="btn btn-primary btn-block" disabled={this.hasErrors()}>Register</button>
               </div>
             </form>
             <hr />
-            <p className="text-center">Don't have an account? <Link to="/register">Sign up</Link></p>
+            <p className="text-center">Already registered? <Link to="/login">Login</Link></p>
           </div>
         </div>
       );
