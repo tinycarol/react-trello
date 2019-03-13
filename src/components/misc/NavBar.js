@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Link, NavLink, Redirect } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthStore';
 import authService from '../../services/AuthService';
-
+import { withRouter } from 'react-router-dom';
 
 
 class NavBar extends Component {
@@ -10,7 +10,9 @@ class NavBar extends Component {
   handleLogout = () => {
     authService.logout()
       .then(() => {
+        const { history } = this.props;
         this.props.onUserChange({});
+        history.push('/login');
       })
   }
 
@@ -58,10 +60,11 @@ class NavBar extends Component {
   }
 }
 
+const NavBarWithRouter = withRouter(NavBar)
 export default () => (
   <AuthContext.Consumer>
     {({user, onUserChange}) => (
-      <NavBar user={user} onUserChange={onUserChange} />
+      <NavBarWithRouter user={user} onUserChange={onUserChange} />
     )}
   </AuthContext.Consumer> 
 )

@@ -14,7 +14,6 @@ const deleteColumn = (id) => http.delete(`/columns/${id}`);
 const createCard = (card) => {
   const data = new FormData();
   Object.keys(card).forEach(key => {
-    console.log(key, card[key]);
     data.append(key, card[key]);
   })
 
