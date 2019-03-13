@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import authService from '../../services/AuthService';
 import { Redirect, Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthStore'
 
 const emailPattern = /(.+)@(.+){2,}\.(.+){2,}/i;
 
@@ -24,8 +25,8 @@ const validators = {
     return error;
   }
 }
-
-export default class Login extends Component {
+ 
+class Login extends Component {
 
   state = {
     user: {
@@ -43,7 +44,10 @@ export default class Login extends Component {
     if (!this.hasErrors()) {
       authService.authenticate(this.state.user)
       .then(
-        (user) => this.setState({ authenticated: true }),
+        (user) => {
+          this.setState({ authenticated: true });
+          this.props.onUserChange(user);
+        },
         (error) => {
           const { message, errors } = error.response.data;
           this.setState({
@@ -123,3 +127,11 @@ export default class Login extends Component {
     }
   }
 }
+
+export default () => (
+  <AuthContext.Consumer>
+    {({user, onUserChange}) => (
+      <Login onUserChange={onUserChange} />
+    )}
+  </AuthContext.Consumer>
+)
