@@ -5,6 +5,7 @@ import { Board } from './components/Board';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { NewCard } from './components/card';
 import { Login, Register } from './components/auth';
+import PrivateRoute from './guards/PrivateRoute';
 
 class App extends Component {
   render() {
@@ -15,8 +16,8 @@ class App extends Component {
         <section>
           <div className="container-fluid pt-4">
             <Switch>
-              <Route exact path="/columns/:columnId/new_card" component={NewCard} />
-              <Route exact path="/board" component={Board}/>
+              <PrivateRoute exact path="/columns/:columnId/new_card" component={NewCard} />
+              <PrivateRoute exact path="/board" component={Board}/>
               <Route exact path="/login" component={Login}/>
               <Route exact path="/register" component={Register}/>
               <Redirect to="/board"/>
