@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
-import { Link, NavLink, Redirect } from 'react-router-dom';
-import { AuthContext } from '../../contexts/AuthStore';
+import { Link, NavLink } from 'react-router-dom';
+import { withAuthConsumer } from '../../contexts/AuthStore';
 import authService from '../../services/AuthService';
 import { withRouter } from 'react-router-dom';
 
@@ -60,11 +60,4 @@ class NavBar extends Component {
   }
 }
 
-const NavBarWithRouter = withRouter(NavBar)
-export default () => (
-  <AuthContext.Consumer>
-    {({user, onUserChange}) => (
-      <NavBarWithRouter user={user} onUserChange={onUserChange} />
-    )}
-  </AuthContext.Consumer> 
-)
+export default withAuthConsumer(withRouter(NavBar))

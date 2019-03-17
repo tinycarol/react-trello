@@ -5,8 +5,8 @@ import 'font-awesome/css/font-awesome.min.css';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter } from 'react-router-dom';
-import AuthStore from './contexts/AuthStore';
+import { BrowserRouter } from 'react-router-dom';
+import { AuthStore } from './contexts/AuthStore';
 
 ReactDOM.render(
   <BrowserRouter>

@@ -32,5 +32,12 @@ class AuthStore extends Component {
   }
 }
 
-export default AuthStore
-export { AuthContext }
+const withAuthConsumer = (Component) => {
+  return () => (
+    <AuthContext.Consumer>
+      {(props) => (<Component {...props} />)}
+    </AuthContext.Consumer>
+  );
+}
+
+export { AuthStore, AuthContext, withAuthConsumer }

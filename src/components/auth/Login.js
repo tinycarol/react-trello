@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import authService from '../../services/AuthService';
 import { Redirect, Link } from 'react-router-dom';
-import { AuthContext } from '../../contexts/AuthStore'
+import { withAuthConsumer } from '../../contexts/AuthStore'
 
 const emailPattern = /(.+)@(.+){2,}\.(.+){2,}/i;
 
@@ -128,10 +128,4 @@ class Login extends Component {
   }
 }
 
-export default () => (
-  <AuthContext.Consumer>
-    {({user, onUserChange}) => (
-      <Login onUserChange={onUserChange} />
-    )}
-  </AuthContext.Consumer>
-)
+export default withAuthConsumer(Login);
