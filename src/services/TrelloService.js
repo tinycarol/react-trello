@@ -1,9 +1,4 @@
-import axios from 'axios';
-
-const http = axios.create({
-  baseURL: 'http://localhost:3001',
-  withCredentials: true
-});
+import http from './BaseService';
 
 const getColumns = () => http.get('/columns').then(response => response.data);
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { withAuthConsumer, AuthContext } from '../contexts/AuthStore';
+import { AuthContext } from '../contexts/AuthStore';
 import { Route, Redirect } from 'react-router-dom';
 
 const PrivateRoute = ({ component: Component, ...rest}) => (
