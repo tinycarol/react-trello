@@ -1,0 +1,38 @@
+.Card {
+	border-radius: 6px;
+    background: #fff;
+	padding: 10px;
+	box-shadow: 0 1px 0 rgba(9,30,66,.25);
+}
+
+.Card + .Card {
+	margin-top: 5px;
+}
+
+.CardTitle {
+	clear: both;
+    display: block;
+    margin: 0 0 4px;
+    overflow: hidden;
+    text-decoration: none;
+    word-wrap: break-word;
+	color: #172b4d;
+	text-align: left;
+    text-transform: capitalize;
+}
+
+.Labels {
+	display: flex;
+	overflow: scroll;
+	margin-bottom: 5px;
+}
+
+.Labels::-webkit-scrollbar {
+	width: 0px;  /* Remove scrollbar space */
+	height: 0px;
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+.navigable-focused {
+	border: 5px red solid;
+}

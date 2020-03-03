@@ -1,0 +1,35 @@
+.Column {
+    min-width: 200px;
+    padding: 10px;
+    border-radius: 6px;
+    background: #ebecf0;
+    height: 100%;
+    max-height: calc(100vh - 20px - 10px);
+    overflow: scroll;
+}
+
+.Column+.Column {
+    margin-left: 5px;
+}
+
+.ColumnTitle {
+    color: #172b4d;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+	overflow: auto;
+	white-space: nowrap;
+    text-align: left;
+    text-transform: capitalize;
+}
+
+.ColumnTitle + .Card {
+    margin-top: 5px;
+}
+
+.ColumnTitle::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+	height: 0px;
+}
